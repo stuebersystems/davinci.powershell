@@ -8,7 +8,7 @@ DAVINCI ist eine Software zum Erstellen und Publizieren von Stundenplänen, Vert
 
 ## Systemvoraussetzungen
 
-Die Systemvoraussetzungen für eine erfolgreiche Ausführung von PowerShell-Skripten ist PowerShell 5. PowerShell 5 ist unter Windows 2016 und Windows 10 bereits vorinstalliert, für ältere Windows-Systeme (Windows 7 Service Pack 1, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2) muss das Windows Management Framework 5.1 installiert werden:
+Die Systemvoraussetzungen für eine erfolgreiche Ausführung dern PowerShell-Skripte ist PowerShell 5. PowerShell 5 ist unter Windows 2016 und Windows 10 bereits vorinstalliert, für ältere Windows-Systeme (Windows 7 Service Pack 1, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2) muss das Windows Management Framework 5.1 installiert werden:
 
 1. Installiere die .NET Framework Runtime (4.5 oder höher): https://dotnet.microsoft.com/download
 
