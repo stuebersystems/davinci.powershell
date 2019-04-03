@@ -1,0 +1,23 @@
+{
+   "DavFile" : {
+      "LocalPath" : "Path to local DAVINCI file",
+      "LastSucessfullUpload" : null
+   },
+   "DavUserFile" : {
+      "LocalPath" : "Path to local DAVINCI users file",
+      "LastSucessfullUpload" : null
+   },
+   "Ftp" : {
+      "Url" : "Url to your FTP folder",
+      "UserName" : "Your FTP username",
+      "Password" : "Your FTP password"
+   },
+   "Email" : {
+      "From" : "Sender's email address",
+      "To" : "Recipient's email address",
+      "SmtpServer" : "Your SMTP server address",
+      "SmtpUserName" : "Your SMTP server username",
+      "SmtpPassword" : "Your SMTP server password",
+      "UseSsl" : true
+   }
+}

@@ -1,0 +1,14 @@
+{
+   "DavUserFile" : {
+      "LocalPath" : "Path to local DAVINCI users file",
+      "LastSucessfullUpload" : null
+   },
+   "Email" : {
+      "From" : "Sender's email address",
+      "To" : "Recipient's email address",
+      "SmtpServer" : "Your SMTP server address",
+      "SmtpUserName" : "Your SMTP server username",
+      "SmtpPassword" : "Your SMTP server password",
+      "UseSsl" : true
+   }
+}
