@@ -175,16 +175,16 @@ function UploadFileToSharedFolder{
 		$SecurePassword = $Params.Shared.Password | ConvertTo-SecureString -asPlainText -Force
 	
 		# Init credential
-		$Cred = New-Object System.Management.Automation.PSCredential "172.19.114.15\cam", $SecurePassword
+		$Cred = New-Object System.Management.Automation.PSCredential $Params.Shared.UserName, $SecurePassword
 		
 		# Map shared folder to drive
-		New-PSDrive -Name P -PSProvider FileSystem -Root $Params.Shared.FolderName -Credential $Cred | Out-Null
+		New-PSDrive -Name $Params.Shared.DriveName -PSProvider FileSystem -Root $Params.Shared.FolderName -Credential $Cred | Out-Null
 
 		# Create temporary copy of file
 		Copy-Item $srcPath -Destination $destPath
 
 		# Unmap drive
-		Remove-PSDrive -Name P
+		Remove-PSDrive -Name $Params.Shared.DriveName
 
 		# Remove temporary copy file
 		Remove-Item -path $srcPath
