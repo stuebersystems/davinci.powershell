@@ -1,4 +1,4 @@
-# Upload changed DAVINCI file / DAVINCI User file to FTP / WebDAV
+# Upload changed DAVINCI data to FTP / WebDAV / Shared Folder
 
 # Last updated: 04.04.2019
 # Version: 0.0.2
