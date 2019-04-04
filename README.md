@@ -14,6 +14,14 @@ Die Systemvoraussetzungen für eine erfolgreiche Ausführung der PowerShell-Skri
 
 2. Installiere das Windows Management Framework 5.1 (enthält PowerShell 5): https://www.microsoft.com/en-us/download/details.aspx?id=54616
 
+Die Ausführung von Powershell-Skripten unter Windows ist standardmäßig nicht erlaubt, nur die Shell darf interaktiv benutzt werden. Dies kann man als Administrator jedoch ändern:
+
+1. Starte Powershell als Administrator: `Start > Windows Powershell > Windows Powershell`
+
+2. Tippe `Set-ExecutionPolicy -ExecutionPolicy Unrestricted` ein und bestätige.
+
+Mehr Infos zum Cmdlet `Set-ExecutionPolicy` findest Du in der [Microsoft-Dokumentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6).
+
 ## Die Powershell-Skripte
 
 Eine ausführliche Beschreibung der einzelnen Skripte findet sich im [Wiki](https://github.com/stuebersystems/davinci.powershell/wiki).
