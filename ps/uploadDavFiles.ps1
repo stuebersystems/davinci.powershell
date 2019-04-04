@@ -1,7 +1,7 @@
 # Upload changed DAVINCI file / DAVINCI User file to FTP / WebDAV
 
-# Last updated: 03.04.2019
-# Version: 0.0.1
+# Last updated: 04.04.2019
+# Version: 0.0.2
 
 # Copyright (c) 2019 STÜBER SYSTEMS 
 
@@ -145,6 +145,52 @@ function UploadFileToWebDav{
 	}
 }
 
+# Uploads file to shared folder
+
+function UploadFileToSharedFolder{
+
+	param(
+		[parameter(mandatory=$true,position=0)]
+		[ValidateNotNullOrEmpty()]
+		[string]
+		$LocalFileName,
+
+		[parameter(mandatory=$true,position=1)]
+		[ValidateNotNull()]
+		[object]
+		$Params
+	)
+
+	# Is shared folder configured?
+	if (Get-Member -inputobject $Params -name "Shared" -Membertype Properties) {
+	
+		# Init source and dest path
+		$srcPath = $LocalFileName + ".tmp"
+		$destPath = $Params.Shared.FolderName.TrimEnd('\') + "\" + (Split-Path $LocalFileName -leaf)
+
+		# Create temporary copy of file
+		Copy-Item $LocalFileName -Destination $srcPath
+		
+		# Init secure password
+		$SecurePassword = $Params.Shared.Password | ConvertTo-SecureString -asPlainText -Force
+	
+		# Init credential
+		$Cred = New-Object System.Management.Automation.PSCredential "172.19.114.15\cam", $SecurePassword
+		
+		# Map shared folder to drive
+		New-PSDrive -Name P -PSProvider FileSystem -Root $Params.Shared.FolderName -Credential $Cred | Out-Null
+
+		# Create temporary copy of file
+		Copy-Item $srcPath -Destination $destPath
+
+		# Unmap drive
+		Remove-PSDrive -Name P
+
+		# Remove temporary copy file
+		Remove-Item -path $srcPath
+	}
+}
+
 # Main method
 
 try
@@ -170,7 +216,10 @@ try
 
 		# Upload DAVINCI File to WebDAV
 		UploadFileToWebDav $params.DavFile.LocalPath $params
-		
+
+		# Upload DAVINCI File to Shared Folder
+		UploadFileToSharedFolder $params.DavFile.LocalPath $params
+
 		# Store current timestamp
 		$params.DavFile.LastSucessfullUpload = Get-Date -Format s
 		
@@ -200,6 +249,9 @@ try
 		# Upload DAVINCI User File to WebDAV
 		UploadFileToWebDav $params.DavUserFile.LocalPath $params
 		
+		# Upload DAVINCI User File to Shared Folder
+		UploadFileToSharedFolder $params.DavUserFile.LocalPath $params
+
 		# Store current timestamp
 		$params.DavUserFile.LastSucessfullUpload = Get-Date -Format s
 		
