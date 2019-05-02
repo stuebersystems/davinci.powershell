@@ -1,7 +1,7 @@
 # Upload changed DAVINCI data to FTP / WebDAV / Shared Folder
 
-# Last updated: 04.04.2019
-# Version: 0.0.2
+# Last updated: 02.05.2019
+# Version: 0.0.3
 
 # Copyright (c) 2019 STÜBER SYSTEMS 
 
@@ -98,6 +98,7 @@ function UploadFileToFTP{
 		
 		# Upload via FTP
 		$webclient = New-Object System.Net.WebClient 
+		$webclient.Proxy = $NULL
 		$webclient.Credentials = New-Object System.Net.NetworkCredential($Params.Ftp.Username, $Params.Ftp.Password)  
 		$webclient.UploadFile($uri, $srcPath) 
 		
@@ -135,7 +136,7 @@ function UploadFileToWebDav{
 		# Create Uri object
 		$uri = New-Object System.Uri($destUrl) 	
 		
-		# Upload via FTP
+		# Upload via WebDAV
 		$webclient = New-Object System.Net.WebClient 
 		$webclient.Credentials = New-Object System.Net.NetworkCredential($Params.WebDav.UserName, $Params.WebDav.Password)  
 		$webclient.UploadFile($uri, "PUT", $srcPath) 
