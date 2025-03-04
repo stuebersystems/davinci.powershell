@@ -1,7 +1,7 @@
 {
    "DavUserFile" : {
       "LocalPath" : "Path to local DAVINCI users file",
-      "LastSucessfullUpload" : null
+      "LastSucessfullRestart" : null
    },
    "Email" : {
       "From" : "Sender's email address",
