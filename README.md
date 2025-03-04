@@ -29,7 +29,3 @@ Eine ausführliche Beschreibung der einzelnen Skripte findet sich im [Wiki](http
 ## Kann ich mithelfen?
 
 Ja, sehr gerne. Der beste Weg mitzuhelfen ist es, den Quellcode auszuprobieren, Rückmeldung per Issue-Tracker zu geben und/oder eigene Pull-Requests zu generieren.
-
-## Code of conduct (Verhaltensregeln)
-
-In diesem Projekt wurde der [STÜBER SYSTEMS Code of conduct](https://www.stueber.de/code-of-conduct.php) übernommen.
